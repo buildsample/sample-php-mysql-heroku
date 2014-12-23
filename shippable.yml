@@ -6,8 +6,8 @@ php:
 env:
   global:
     - CLEARDB_DATABASE_URL=mysql://shippable@127.0.0.1:3306/test?reconnect=true
-    - secure: MRuHkLbL9HPkJPU5lzkKM1+NOq1S5RrhxEyhJkk60xxYiF7DMzydiBN8oFBjWrSmyGeGRuEC22a0I5ItobdWVszfcJCaXHwtfKzfGOUdKuyCnDgvojXhv/jrBvULyLK6zsLw3b8NMxdnwNsHqSPm19qW/EIGEl9Zv/637Igos69z9aT7+xrEG013+6HtKYb8RHm+iPSNsFoBi/RSAHYuM1eLTZWG2WAkjgzZaYmrHCgNwVmk+HOGR+TOWN7Iu5lrjyvC1XDCQrOvo1hZI30cd9OqJ5aadFm3exQpNhI4I7AgOnCbK3NoWNc/GAnqKXCvsaIQ80Jd/uLIOVyMjD6Xmg==
-
+    #- secure: MRuHkLbL9HPkJPU5lzkKM1+NOq1S5RrhxEyhJkk60xxYiF7DMzydiBN8oFBjWrSmyGeGRuEC22a0I5ItobdWVszfcJCaXHwtfKzfGOUdKuyCnDgvojXhv/jrBvULyLK6zsLw3b8NMxdnwNsHqSPm19qW/EIGEl9Zv/637Igos69z9aT7+xrEG013+6HtKYb8RHm+iPSNsFoBi/RSAHYuM1eLTZWG2WAkjgzZaYmrHCgNwVmk+HOGR+TOWN7Iu5lrjyvC1XDCQrOvo1hZI30cd9OqJ5aadFm3exQpNhI4I7AgOnCbK3NoWNc/GAnqKXCvsaIQ80Jd/uLIOVyMjD6Xmg==
+    - secure: PKT9B0GJ6RMge7CeHigt/ypqT/3afWCbK199l7iMAdyZg9ukWQuPxBHeWVqfYMA3pRhM5O0APiv4QUB0F991Ke0H0bxqbRYYJCNXoNWyRq2/QoqA4LHdvzWp4L4rzOZSa9sRExOR5/tw1eUnyQ3qpH7nTDBx67l2wru75oN68MQ+3L+n3OlzABV6b+rrImTzmuu7PIZICm5NVxbf/HudeEXbLBlpF0RqzWh8+rPVBFsspVd5tE/xBwe285c5AG+bmRC+HOcVCe8beMHWjYNGsRB5TsfAjZ7NoSf6u4LIgPa3glRDSojEo5jV6LfNvH3i1o9mTh0cimYqzNxskOGedQ==
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
@@ -21,5 +21,5 @@ script:
 
 after_success:
   - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
-  - git remote -v | grep ^heroku || heroku git:remote --app obscure-citadel-8851
+  - git remote -v | grep ^heroku || heroku git:remote --ssh-git --app obscure-citadel-8852
   - git push -f heroku $BRANCH:master

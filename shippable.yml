@@ -2,7 +2,7 @@ language: php
 
 php: 
   - 5.4
-
+build_image: shippable/minv2:beta
 env:
   global:
     - CLEARDB_DATABASE_URL=mysql://shippable@127.0.0.1:3306/test?reconnect=true
